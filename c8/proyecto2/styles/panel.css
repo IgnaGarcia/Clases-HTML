@@ -1,0 +1,29 @@
+main,
+table {
+    margin: auto;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    border: 1px solid #151515;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #151515;
+    padding: 5px 10px;
+}
+th{
+    background-color: #6e1434;
+    text-align: center;
+}
+tr {
+    background-color: #4700a5;
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: #922D50;
+}
+table:last-child tr td{
+    text-align: center;
+}
