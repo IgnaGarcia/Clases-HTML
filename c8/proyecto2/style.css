@@ -1,0 +1,85 @@
+/*
+sintaxis basica
+unidades de colores
+unidades de medida
+selectores(tipos) - especificacion
+*/
+
+body {
+    background: #131319;
+    color: #FFF3F0;
+    margin: 0;
+    font-family: 'Ubuntu';
+}
+a {
+    color: #FFF3F0;
+    text-decoration: none;
+}
+/*
+seleccion de tag/etiqueta: etiqueta
+seleccion de clase: .clase
+seleccion de id: #id
+*/
+.header {
+    border-bottom: 1px solid #922D50;
+    padding: .5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header h1 {
+    margin: 0;
+}
+.header ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.header li {
+    margin: 0 4px;
+    padding: 2px 6px;
+    border: 1px solid #922D50;
+    border-radius: 7px;
+}
+.header li:hover {
+    box-shadow: 0px 0px 10px 0px #922D50;
+}
+.header li:hover a{
+    color: #922D50;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2em 0;
+}
+aside{
+    width: 25%;
+    text-align: center;
+    border-radius: 7px;
+    border: 1px solid #922D50;
+}
+main{
+    width: 60%;
+}
+
+.lista{
+    display: flex;
+    padding: 1em;
+    border-radius: 7px;
+    border: 1px solid #922D50;
+    list-style: none;
+    overflow-x: scroll;
+}
+.lista li{
+    margin: 0 .4em;
+    padding: 7px 10px;
+    border-radius: 7px;
+    border: 1px solid #922D50;
+}
+.lista img{
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+}
