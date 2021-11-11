@@ -1,0 +1,12 @@
+:root {
+    --mio: #358835;
+    --miBlanco: #e5e5e5;
+}
+.bg-mio {
+    background: var(--mio);
+    color: var(--miBlanco);
+}
+.btn-mio {
+    background: var(--mio);
+    color: var(--miBlanco);
+}
