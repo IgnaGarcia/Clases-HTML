@@ -1,0 +1,25 @@
+:root{
+    --miVioleta: #8b1d8b;
+    --miVerde: #1b9406;
+
+    --miPrincipal: var(--miVioleta);
+    --miSecundario: var(--miVerde);
+}
+
+.bg-miPrincipal{
+    background: var(--miPrincipal);
+}
+
+.btn-miPrincipal{
+    background: var(--miPrincipal);
+    border-color: var(--miPrincipal);
+}
+
+.btn-miPrincipal:hover{
+    background: var(--miSecundario);
+    border-color: var(--miSecundario);
+}
+
+.color-miPrincipal{
+    color: var(--miPrincipal);
+}
