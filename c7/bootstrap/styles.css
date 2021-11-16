@@ -1,12 +1,50 @@
 :root {
     --mio: #358835;
+    --mio-claro: #43a843;
     --miBlanco: #e5e5e5;
+
+    --carolina-blue: #4d9de0ff;
+    --sunray: #edae49ff;
+    --medium-sea-green: #3bb273ff;
+
+
+    --primario: var(--fiery-rose);
+    --secundario: var(--blue-violet-crayola);
+    --fondo: #e5e5e5;
+    --color: #252525;
+
+    --fuente-titulo: 'Praise', cursive;
+    --fuente-regular: 'Poppins', sans-serif;
+}
+body{
+    font-family: var(--fuente-regular);
+    background: var(--fondo);
+    color: var(--color);
 }
 .bg-mio {
-    background: var(--mio);
+    background: var(--primario);
     color: var(--miBlanco);
 }
 .btn-mio {
-    background: var(--mio);
+    background: var(--primario);
+    border: 1px solid var(--primario);    
     color: var(--miBlanco);
+}
+.btn-mio:hover{
+    background: var(--secundario);
+    border: 1px solid var(--secundario);
+}
+section{
+    
+    transition: all .35s;
+}
+section:hover{
+    background: var(--secundario);
+}
+.color-mio{
+    color: var(--primario);
+}
+.titulo{
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
 }
