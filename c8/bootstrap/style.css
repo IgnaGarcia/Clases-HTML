@@ -2,10 +2,24 @@
     --miVioleta: #8b1d8b;
     --miVerde: #1b9406;
 
-    --miPrincipal: var(--miVioleta);
-    --miSecundario: var(--miVerde);
-}
+    --rich-black-fogra-29: #161925ff;
+    --prussian-blue: #23395bff;
+    --steel-teal: #42858cff;
+    --burgundy: #890620ff;
+    --light-cyan: #cbf7edff;
 
+
+    --miPrincipal: var(--burgundy);
+    --miSecundario: var(--prussian-blue);
+}
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+*{
+}
+.titulo{
+    font-family: 'Praise', cursive;
+}
 .bg-miPrincipal{
     background: var(--miPrincipal);
 }
@@ -22,4 +36,11 @@
 
 .color-miPrincipal{
     color: var(--miPrincipal);
+}
+
+section{
+    transition: all 0.8s;
+}
+section:hover{
+    background-color: var(--steel-teal);
 }
