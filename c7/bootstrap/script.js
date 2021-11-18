@@ -29,6 +29,9 @@ function main(){
     toggleTheme()
 
     const btn = document.querySelector("#btn")
+    btn.addEventListener("mouseover", () => { 
+        btn.className += " rotate-center"
+    })
     btn.addEventListener("click", onClick)
 }
 var isDark = true
