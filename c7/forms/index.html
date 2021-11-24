@@ -19,15 +19,17 @@
 <body>
     <form class="needs-validation" novalidate>
         <label for="validationCustom01" class="form-label">First name</label>
-        <input type="text" class="form-control" id="validationCustom01" placeholder="Mark" required minlength="2">
+        <input type="text" class="form-control" id="validationCustom01" placeholder="Mark" minlength="2">
         <div class="invalid-feedback">
             Minimo 2 caracteres
         </div>
+        
         <label for="validationCustom02" class="form-label">Last name</label>
-        <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+        <input type="text" class="form-control" id="validationCustom02" placeholder="Otto" required>
         <div class="valid-feedback">
             Looks good!
         </div>
+
         <label for="validationCustomUsername" class="form-label">Username</label>
         <div class="input-group has-validation">
             <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -37,11 +39,13 @@
                 Please choose a username.
             </div>
         </div>
+
         <label for="validationCustom03" class="form-label">City</label>
         <input type="text" class="form-control" id="validationCustom03" required>
         <div class="invalid-feedback">
             Please provide a valid city.
         </div>
+
         <label for="validationCustom04" class="form-label">State</label>
         <select class="form-select" id="validationCustom04" required>
             <option selected disabled value="">Choose...</option>
@@ -50,11 +54,20 @@
         <div class="invalid-feedback">
             Please select a valid state.
         </div>
+
         <label for="validationCustom05" class="form-label">Precio</label>
-        <input type="text" class="form-control" id="validationCustom05" required pattern="\d+[\,\d+]">
+        <input type="number" class="form-control" id="validationCustom05" required min="0" max="100">
+        <!-- pattern="\d+[\,\d+]" -->
         <div class="invalid-feedback">
-            El precio debe ser mayor a 0
+            El precio debe ser mayor a 0 y menor a 100
         </div>
+
+        <label for="validationCustom06" class="form-label">Email</label>
+        <input type="email" class="form-control" id="validationCustom06" required pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$">
+        <div class="invalid-feedback">
+            no es un email
+        </div>
+
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
             <label class="form-check-label" for="invalidCheck">
@@ -64,7 +77,9 @@
                 You must agree before submitting.
             </div>
         </div>
+        
         <button class="btn btn-primary" type="submit">Submit form</button>
+        <!-- <input class="btn btn-primary" type="submit" value="Submit form"/> -->
     </form>
 </body>
 
