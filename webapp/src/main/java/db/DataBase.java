@@ -49,4 +49,13 @@ public class DataBase {
 	public List<Producto> getProducts(){		
 		return products;
 	}
+
+	public void deleteProduct(String name) {
+		for(int i=0; i<products.size(); i++) {
+			if( products.get(i).getName().equals(name) ) {
+				products.get(i).setActive(false);
+				break;
+			}
+		}
+	}
 }
