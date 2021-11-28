@@ -1,12 +1,14 @@
 package model;
 
 public class Producto {
+	private Integer id;
 	private String name;
 	private Double price;
 	private Integer stock;
 	private boolean active;
 	
-	public Producto(String name, Double price, Integer stock) {
+	public Producto(Integer id, String name, Double price, Integer stock) {
+		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.stock = stock;
@@ -43,5 +45,9 @@ public class Producto {
 
 	public void setActive(boolean state) {
 		this.active = state;
+	}
+	
+	public Integer getId() {
+		return this.id;
 	}
 }

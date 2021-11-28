@@ -12,34 +12,37 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Producto;
 
-@WebServlet("/producto/create.do")
-public class CreateProductServlet extends HttpServlet implements Servlet {
-	private static final long serialVersionUID = -4953157559512379392L;
-
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/create.jsp");
-		dispatcher.forward(req, resp);
-	}
+@WebServlet("/producto/edit.do")
+public class EditProductServlet extends HttpServlet implements Servlet {
+	private static final long serialVersionUID = 8491472908004599342L;
 	
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
+
+		Producto prod= DataBase.getInstance().getProduct(id);
+		req.setAttribute("producto", prod);
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/edit.jsp");
+		dispatcher.forward(req, resp);
+	}
+
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
 		String name = req.getParameter("name");
 		Double price = Double.parseDouble(req.getParameter("price"));
 		Integer stock = Integer.parseInt(req.getParameter("stock"));
 		
-		Integer id = DataBase.getInstance().getLastProductId() + 1;
-		Producto prod = new Producto(id, name, price, stock);
-		
-		if(DataBase.getInstance().createProduct(prod) == 0) {
+		if(DataBase.getInstance().updateProduct(id, name, price, stock) == 0) {
 			// succes
 			resp.sendRedirect("list.do");
 		} else {
 			// error
-			req.setAttribute("producto", prod);
+			req.setAttribute("producto", new Producto(id, name, price, stock));
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/create.jsp");
+					.getRequestDispatcher("/edit.jsp");
 			dispatcher.forward(req, resp);			
 		}
 	}
