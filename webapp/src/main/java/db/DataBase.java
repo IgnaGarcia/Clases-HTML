@@ -50,12 +50,18 @@ public class DataBase {
 		return products;
 	}
 
-	public void deleteProduct(String name) {
+	public int deleteProduct(String name) {
 		for(int i=0; i<products.size(); i++) {
 			if( products.get(i).getName().equals(name) ) {
 				products.get(i).setActive(false);
-				break;
+				return 0;
 			}
 		}
+		return 1;
+	}
+	
+	public int createProduct(Producto producto) {
+		products.add(producto);
+		return 0;
 	}
 }

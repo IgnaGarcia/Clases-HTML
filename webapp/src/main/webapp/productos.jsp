@@ -17,7 +17,7 @@
 	<h2> Estos son los Productos </h2>
 		
 	<c:if test="${ user.isAdmin() }">
-		<a href="/webapp/formProducto.jsp"> Crear nuevo Producto </a>
+		<a href="create.do"> Crear nuevo Producto </a>
 	</c:if>	
 	
 	<table>
