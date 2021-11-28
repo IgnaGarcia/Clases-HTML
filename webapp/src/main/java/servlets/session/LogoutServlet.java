@@ -1,0 +1,30 @@
+package servlets.session;
+
+import java.io.IOException;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet implements Servlet {
+	
+	private static final long serialVersionUID = -4027089359360036809L;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// Eliminamos de la sesion el atributo user
+		req.getSession().removeAttribute("user");
+		
+		// Preparamos el mensaje y el destino
+		req.setAttribute("flash", "Hasta Pronto!");
+		RequestDispatcher dispacher = getServletContext().getRequestDispatcher("/login.jsp");
+		
+		// Realizo el evento hacia la pagina seteada
+		dispacher.forward(req, resp);
+	}
+}
