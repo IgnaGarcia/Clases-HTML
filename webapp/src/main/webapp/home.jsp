@@ -11,7 +11,7 @@
 	<nav>
 		<a href="#">Inicio</a>
 		<a href="productos.jsp">Productos</a>
-		<a href="login.jsp">Cerrar Sesion</a>
+		<a href="logout">Cerrar Sesion</a>
 	</nav>
 	
 	<h2> Bienvenid@ 

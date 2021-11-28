@@ -10,7 +10,7 @@
 	<nav>
 		<a href="home.jsp">Inicio</a>
 		<a href="#">Productos</a>
-		<a href="login.jsp">Cerrar Sesion</a>
+		<a href="logout">Cerrar Sesion</a>
 	</nav>
 	
 	<h2> Estas son los Productos </h2>
