@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import db.DataBase;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
@@ -22,13 +23,8 @@ public class LoginServlet extends HttpServlet implements Servlet {
 	
 	@Override
 	public void init() throws ServletException {
-		usermap = new HashMap<String, Usuario>();
-		
-		//Emulamos una base de datos de usuario para el login
-		usermap.put("ignag", new Usuario("ignag", "mypass123", true));
-		usermap.put("pepe", new Usuario("pepe", "admin123", true));
-		usermap.put("lore", new Usuario("lore", "abcdef", false));
-		usermap.put("cami", new Usuario("cami", "password", false));
+		// Consultamos a la DB los usuarios
+		usermap = DataBase.getInstance().getUsers();
 	}
 	
 	@Override

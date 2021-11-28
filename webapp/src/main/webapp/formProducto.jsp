@@ -9,14 +9,14 @@
 <body>
 	<nav>
 		<a href="home.jsp">Inicio</a>
-		<a href="productos.jsp">Productos</a>
-		<a href="login.jsp">Cerrar Sesion</a>
+		<a href="producto/list">Productos</a>
+		<a href="/webapp/logout">Cerrar Sesion</a>
 	</nav>
 	
 	<h2> Editar el Producto </h2>
 	<h2> Crear el Producto </h2>
 			
-	<form action="productos.jsp" method="post">
+	<form action="list" method="post">
 		<label for="name">Nombre: </label>
 		<input type="text" name="name" placeholder="coca" required/>
 		<br/>
