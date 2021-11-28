@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/producto/delete")
+@WebServlet("/producto/delete.do")
 public class DeleteProductServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = -5506851070266130036L;
 
@@ -20,6 +20,6 @@ public class DeleteProductServlet extends HttpServlet implements Servlet {
 
 		DataBase.getInstance().deleteProduct(name);
 
-		resp.sendRedirect("/webapp/producto/list");
+		resp.sendRedirect("/webapp/producto/list.do");
 	}
 }

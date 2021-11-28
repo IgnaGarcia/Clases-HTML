@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Producto;
 
-@WebServlet("/producto/list")
+@WebServlet("/producto/list.do")
 public class ListProductServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = -2978092874230647675L;
 	List<Producto> products;

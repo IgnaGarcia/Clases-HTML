@@ -12,7 +12,7 @@
 		<c:out value='${ flash }'></c:out>
 	</c:if>
 	
-	<form action="login" method="post">
+	<form action="/webapp/login" method="post">
 		<label for="username">Nombre de usuario: </label>
 		<input type="text" name="username" placeholder="pepito" required minlength="3"/>
 		<br/>
