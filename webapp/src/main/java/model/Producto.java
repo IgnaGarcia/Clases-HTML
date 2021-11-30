@@ -14,6 +14,13 @@ public class Producto {
 		this.stock = stock;
 		this.active = true;
 	}
+	
+	public Producto(String name, Double price, Integer stock) {
+		this.name = name;
+		this.price = price;
+		this.stock = stock;
+		this.active = true;
+	}
 
 	public String getName() {
 		return name;
@@ -49,5 +56,9 @@ public class Producto {
 	
 	public Integer getId() {
 		return this.id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

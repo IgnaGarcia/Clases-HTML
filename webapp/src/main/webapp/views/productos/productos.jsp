@@ -8,11 +8,7 @@
 <title>Productos</title>
 </head>
 <body>
-	<nav>
-		<a href="/webapp/home.jsp">Inicio</a>
-		<a href="#">Productos</a>
-		<a href="/webapp/login.jsp">Cerrar Sesion</a>
-	</nav>
+	<jsp:include page="/partials/nav.jsp"></jsp:include>
 	
 	<h2> Estos son los Productos </h2>
 		

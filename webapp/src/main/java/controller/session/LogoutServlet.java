@@ -1,4 +1,4 @@
-package servlets.session;
+package controller.session;
 
 import java.io.IOException;
 

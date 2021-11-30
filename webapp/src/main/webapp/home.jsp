@@ -8,11 +8,7 @@
 <title>Inicio</title>
 </head>
 <body>
-	<nav>
-		<a href="#">Inicio</a>
-		<a href="producto/list.do">Productos</a>
-		<a href="logout">Cerrar Sesion</a>
-	</nav>
+	<jsp:include page="/partials/nav.jsp"></jsp:include>
 	
 	<h2> Bienvenid@ 
 		<i> 

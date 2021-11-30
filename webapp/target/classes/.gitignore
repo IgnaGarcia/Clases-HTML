@@ -1,4 +1,6 @@
+/controller/
+/session/
 /servlets/
-/db/
-/filters/
+/persistence/
+/service/
 /model/

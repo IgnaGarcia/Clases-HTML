@@ -1,10 +1,7 @@
-package servlets.productos;
+package controller.productos;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
-import db.DataBase;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
@@ -12,23 +9,22 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Producto;
+import service.ProductoService;
 
 @WebServlet("/producto/list.do")
 public class ListProductServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = -2978092874230647675L;
-	List<Producto> products;
+	ProductoService productoService;
 	
 	@Override
 	public void init() throws ServletException {
-		// Consultamos a la DB los productos
-		products = DataBase.getInstance().getProducts();
+		productoService = new ProductoService();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("products", products);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productos.jsp");
+		req.setAttribute("products", productoService.list());
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/productos/productos.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

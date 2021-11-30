@@ -5,18 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Crear producto</title>
+<title>Editar producto</title>
 </head>
 <body>
-	<nav>
-		<a href="home.jsp">Inicio</a>
-		<a href="producto/list.do">Productos</a>
-		<a href="/webapp/logout">Cerrar Sesion</a>
-	</nav>
+	<jsp:include page="/partials/nav.jsp"></jsp:include>
 	
-	<h2> Crear el Producto </h2>
+	<h2> Editar el Producto </h2>
 			
-	<form action="create.do" method="post">
+	<form action="edit.do" method="post">
+			<input type="hidden" name="id" value="${ producto.getId() }">
 		<jsp:include page="formProducto.jsp"></jsp:include>
 	</form>
 </body>
