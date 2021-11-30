@@ -19,6 +19,7 @@ public class LogoutServlet extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Eliminamos de la sesion el atributo user
 		req.getSession().removeAttribute("user");
+		//req.getSession().setAttribute("user", null);
 		
 		// Preparamos el mensaje y el destino
 		req.setAttribute("flash", "Hasta Pronto!");

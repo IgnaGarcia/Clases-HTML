@@ -32,21 +32,22 @@ public class LoginServlet extends HttpServlet implements Servlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
-		RequestDispatcher dispacher;
-		
 		// Verificamos que el usuario y contraseña sean correctas
 		if(usermap.containsKey(username) 
 				&& usermap.get(username).auth(password)) {
 			
+			Usuario user = usermap.get(username);
 			// Seteamos en la sesion el usuario y preparamos el destino
-			req.getSession().setAttribute("user", usermap.get(username));
-    		resp.sendRedirect("home.jsp");   
+			req.getSession().setAttribute("user", user);
+			
+			if(user.isAdmin()) resp.sendRedirect("productos.jsp");
+			else resp.sendRedirect("home.jsp");   
 			
 		} else {
 			
 			// Seteamos en request el mensaje y preparamos el destino
 			req.setAttribute("flash", "Usuario y/o Contraseña Incorrecta");
-			dispacher = getServletContext().getRequestDispatcher("/login.jsp");
+			RequestDispatcher dispacher = getServletContext().getRequestDispatcher("/login.jsp");
 			
 			// Realizo el evento hacia la pagina seteada
 			dispacher.forward(req, resp);
