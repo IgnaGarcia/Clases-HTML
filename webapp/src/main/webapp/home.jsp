@@ -11,7 +11,7 @@
 	<nav>
 		<a href="#">Inicio</a>
 		<a href="producto/list.do">Productos</a>
-		<a href="logout">Cerrar Sesion</a>
+		<a href="/webapp/logout">Cerrar Sesion</a>
 	</nav>
 	
 	<h2> Bienvenid@ 
@@ -19,6 +19,10 @@
 			<c:out value='${ user.getUsername() }'></c:out>! 
 		</i>
 	</h2>
+	
+	<c:if test="${ flash != null }">
+		<c:out value="${ flash }"></c:out>
+	</c:if>
 	
 	<a href="producto/list.do"> Ver productos </a>
 </body>

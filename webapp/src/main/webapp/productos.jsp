@@ -40,7 +40,7 @@
 							<c:when test="${ user.isAdmin() }">
 								<td>
 									<a href="formProducto.jsp">Editar</a>
-									<a href="delete.do?name=${ product.getName() }">Borrar</a>
+									<a href="delete.adm?name=${ product.getName() }">Borrar</a>
 								</td>
 							</c:when>
 							<c:otherwise>

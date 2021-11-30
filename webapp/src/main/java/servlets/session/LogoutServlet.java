@@ -18,8 +18,8 @@ public class LogoutServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Eliminamos de la sesion el atributo user
-		req.getSession().setAttribute("user", null);
-		//req.getSession().removeAttribute("user");
+		//req.getSession().setAttribute("user", null);
+		req.getSession().removeAttribute("user");
 		
 		// Preparamos el mensaje y el destino
 		req.setAttribute("flash", "Hasta Pronto!");
