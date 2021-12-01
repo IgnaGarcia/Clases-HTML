@@ -10,7 +10,7 @@
 <body>
 	<nav>
 		<a href="#">Inicio</a>
-		<a href="productos.jsp">Productos</a>
+		<a href="producto/list">Productos</a>
 		<a href="logout">Cerrar Sesion</a>
 	</nav>
 	
@@ -20,6 +20,6 @@
 		</i>
 	</h2>
 	
-	<a href="productos.jsp"> Ver productos </a>
+	<a href="producto/list"> Ver productos </a>
 </body>
 </html>
