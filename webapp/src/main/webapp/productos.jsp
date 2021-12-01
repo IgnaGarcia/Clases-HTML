@@ -31,24 +31,26 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${ products }" var="product">
-				<tr>
-					<td> <c:out value="${ product.getName() }"></c:out> </td>
-					<td> <c:out value="${ product.getPrice() }"></c:out> </td>
-					<td> <c:out value="${ product.getStock() }"></c:out> </td>
-					<c:choose>
-						<c:when test="${ user.isAdmin() }">
-							<td>
-								<a href="formProducto.jsp">Editar</a>
-								<a href="#">Borrar</a>
-							</td>
-						</c:when>
-						<c:otherwise>
-							<td>
-								<a href="#">Comprar</a>
-							</td>
-						</c:otherwise>
-					</c:choose>
-				</tr>
+				<c:if test="${ product.isActive() }">
+					<tr>
+						<td> <c:out value="${ product.getName() }"></c:out> </td>
+						<td> <c:out value="${ product.getPrice() }"></c:out> </td>
+						<td> <c:out value="${ product.getStock() }"></c:out> </td>
+						<c:choose>
+							<c:when test="${ user.isAdmin() }">
+								<td>
+									<a href="formProducto.jsp">Editar</a>
+									<a href="delete?name=${ product.getName() }">Borrar</a>
+								</td>
+							</c:when>
+							<c:otherwise>
+								<td>
+									<a href="#">Comprar</a>
+								</td>
+							</c:otherwise>
+						</c:choose>
+					</tr>
+				</c:if>
 			</c:forEach>
 		</tbody>
 	</table>
