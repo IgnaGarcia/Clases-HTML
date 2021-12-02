@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Crear producto</title>
 </head>
 <body>
@@ -19,5 +19,8 @@
 	<form action="create.do" method="post">
 		<jsp:include page="formProducto.jsp"></jsp:include>
 	</form>
+	<c:if test="${ flash != null }">
+		<p><b> <c:out value="${ flash }"></c:out> </b></p>
+	</c:if>
 </body>
 </html>

@@ -24,22 +24,51 @@ public class CreateProductServlet extends HttpServlet implements Servlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter("name");
-		Double price = Double.parseDouble(req.getParameter("price"));
-		Integer stock = Integer.parseInt(req.getParameter("stock"));
-		
-		Producto prod = new Producto(name, price, stock);
-		
-		if(DataBase.getInstance().createProduct(prod) == 0) {
-			// succes
-			resp.sendRedirect("list.do");
-		} else {
-			// error
-			req.setAttribute("producto", prod);
+		String name;
+		Double price;
+		Integer stock;
+		try {
+			name = req.getParameter("name");
+			String priceString = req.getParameter("price");
+			String stockString = req.getParameter("stock");
+			
+			req.setAttribute("name", name);
+			req.setAttribute("price", priceString);
+			req.setAttribute("stock", stockString);
+			
+			if(name.isBlank() || priceString.isBlank() || stockString.isBlank()) {
+				throw new Exception("Hay campos en blanco");
+			}
+			
+			price = Double.parseDouble(priceString);
+			stock = Integer.parseInt(stockString);
 
+			if(price < 0 || stock < 0) {
+				throw new Exception("El PRECIO y el STOCK deben ser positivos");				
+			}
+			
+			Producto prod = new Producto(name, price, stock);
+			
+			if(DataBase.getInstance().createProduct(prod) == 0) {
+				// succes
+				resp.sendRedirect("list.do");
+			} else {
+				// error
+				req.setAttribute("producto", prod);	
+				RequestDispatcher dispatcher = getServletContext()
+						.getRequestDispatcher("/create.jsp");
+				dispatcher.forward(req, resp);
+			}
+		} catch(NumberFormatException e) {
+			req.setAttribute("flash", "Formato de numero invalido");
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/create.jsp");
-			dispatcher.forward(req, resp);			
+			dispatcher.forward(req, resp);
+		} catch(Exception e) {
+			req.setAttribute("flash", e.getMessage());
+			RequestDispatcher dispatcher = getServletContext()
+					.getRequestDispatcher("/create.jsp");
+			dispatcher.forward(req, resp);
 		}
 	}
 }
