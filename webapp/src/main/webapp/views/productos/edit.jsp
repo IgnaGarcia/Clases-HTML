@@ -12,7 +12,7 @@
 	
 	<h2> Editar el Producto </h2>
 			
-	<form action="edit.do" method="post">
+	<form action="edit.adm" method="post">
 			<input type="hidden" name="id" value="${ producto.getId() }">
 		<jsp:include page="formProducto.jsp"></jsp:include>
 	</form>

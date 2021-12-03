@@ -44,6 +44,7 @@ public class EditProductServlet extends HttpServlet implements Servlet {
 		if(prod.isValid()) {
 			resp.sendRedirect("list.do");
 		} else {
+			req.setAttribute("errors", prod.validate());
 			req.setAttribute("producto", prod);
 
 			getServletContext()

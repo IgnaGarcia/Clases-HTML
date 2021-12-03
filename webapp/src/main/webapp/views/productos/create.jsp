@@ -12,7 +12,7 @@
 	
 	<h2> Crear el Producto </h2>
 			
-	<form action="create.do" method="post">
+	<form action="create.adm" method="post">
 		<jsp:include page="formProducto.jsp"></jsp:include>
 	</form>
 </body>

@@ -77,7 +77,7 @@ public class Producto {
 		
 		if(name.isBlank()) errors.put("name", "El nombre es requerido");		
 		if(price <= 0) errors.put("price", "El precio debe ser positivo");
-		if(stock <= 0) errors.put("price", "El stock debe ser positivo");
+		if(stock <= 0) errors.put("stock", "El stock debe ser positivo");
 		
 		return errors;
 	}
