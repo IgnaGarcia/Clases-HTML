@@ -1,8 +1,6 @@
 package controller.session;
 
 import java.io.IOException;
-
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -41,10 +39,9 @@ public class LoginServlet extends HttpServlet implements Servlet {
 		} else {
 			// Seteamos en request el mensaje y preparamos el destino
 			req.setAttribute("flash", "Usuario y/o Contraseña Incorrecta");
-			RequestDispatcher dispacher = getServletContext().getRequestDispatcher("/login.jsp");
-
-			// Realizo el evento hacia la pagina seteada
-			dispacher.forward(req, resp);
+			getServletContext()
+				.getRequestDispatcher("/login.jsp")
+				.forward(req, resp);
 		}
 	}
 

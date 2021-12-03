@@ -1,8 +1,6 @@
 package controller.session;
 
 import java.io.IOException;
-
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,9 +21,8 @@ public class LogoutServlet extends HttpServlet implements Servlet {
 		
 		// Preparamos el mensaje y el destino
 		req.setAttribute("flash", "Hasta Pronto!");
-		RequestDispatcher dispacher = getServletContext().getRequestDispatcher("/login.jsp");
-		
-		// Realizo el evento hacia la pagina seteada
-		dispacher.forward(req, resp);
+		getServletContext()
+			.getRequestDispatcher("/login.jsp")
+			.forward(req, resp);
 	}
 }
