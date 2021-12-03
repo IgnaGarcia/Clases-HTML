@@ -1,8 +1,8 @@
 package service;
 
 import model.Usuario;
-import persistence.DAOFactory;
 import persistence.UsuarioDAO;
+import persistence.commons.DAOFactory;
 
 public class LoginService {
 

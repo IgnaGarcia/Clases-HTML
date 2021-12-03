@@ -1,17 +1,13 @@
 package persistence;
 
-import java.util.Map;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import model.Usuario;
+import persistence.commons.GenericDAO;
 
-public class UsuarioDAO {
-	private DataBase dbInstance = DataBase.getInstance();
+public interface UsuarioDAO extends GenericDAO<Usuario> {
 	
-	public Map<String, Usuario> getUsers(){
-		return dbInstance.users;
-	}
-	
-	public Usuario getByUsername(String username) {
-		return dbInstance.users.get(username);
-	}
+	public abstract Usuario findByUsername(String username);	
+	public abstract Usuario toUsuario(ResultSet res) throws SQLException;
 }

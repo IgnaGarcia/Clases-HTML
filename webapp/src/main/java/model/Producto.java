@@ -7,12 +7,16 @@ public class Producto {
 	private Integer stock;
 	private boolean active;
 	
-	public Producto(Integer id, String name, Double price, Integer stock) {
+	public Producto(Integer id, String name, Double price, Integer stock, boolean active) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.stock = stock;
-		this.active = true;
+		this.active = active;
+	}
+	
+	public Producto(Integer id, String name, Double price, Integer stock) {
+		this(id, name, price, stock, true);
 	}
 	
 	public Producto(String name, Double price, Integer stock) {

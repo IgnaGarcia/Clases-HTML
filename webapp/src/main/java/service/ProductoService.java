@@ -3,7 +3,7 @@ package service;
 import java.util.List;
 
 import model.Producto;
-import persistence.DAOFactory;
+import persistence.commons.DAOFactory;
 
 public class ProductoService {
 
