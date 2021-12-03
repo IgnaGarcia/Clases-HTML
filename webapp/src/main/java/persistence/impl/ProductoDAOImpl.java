@@ -92,13 +92,13 @@ public class ProductoDAOImpl implements ProductoDAO {
 	}
 
 	@Override
-	public int delete(Producto t) {
+	public int delete(Integer id) {
 		try {
 			String sql = "UPDATE producto SET active = 0 WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, t.getId());
+			statement.setInt(1, id);
 			int rows = statement.executeUpdate();
 
 			return rows;

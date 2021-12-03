@@ -8,26 +8,30 @@ import persistence.commons.DAOFactory;
 public class ProductoService {
 
 	public List<Producto> list(){
-		return DAOFactory.getProductoDAO().getProducts();
+		return DAOFactory.getProductoDAO().findAll();
 	}
 	
-	public void delete(String name) {
-		DAOFactory.getProductoDAO().deleteProduct(name);
+	public void delete(Integer id) {
+		DAOFactory.getProductoDAO().delete(id);
 	}
 	
 	public Producto update(Integer id, String name, Double price, Integer stock) {
-		return DAOFactory.getProductoDAO().updateProduct(id, name, price, stock);
-	}
-	
-	public Producto find(String name) {
-		return DAOFactory.getProductoDAO().getProduct(name);
+		Producto prod = new Producto(id, name, price, stock);
+		if(prod.isValid()) {
+			DAOFactory.getProductoDAO().update(prod);
+		}
+		return prod;
 	}
 	
 	public Producto find(Integer id) {
-		return DAOFactory.getProductoDAO().getProduct(id);
+		return DAOFactory.getProductoDAO().find(id);
 	}
 	
-	public Producto create(Producto prod) {
-		return DAOFactory.getProductoDAO().createProduct(prod);
+	public Producto create(String name, Double price, Integer stock) {
+		Producto prod = new Producto(name, price, stock);
+		if(prod.isValid()) {
+			DAOFactory.getProductoDAO().insert(prod);
+		}
+		return prod;
 	}
 }

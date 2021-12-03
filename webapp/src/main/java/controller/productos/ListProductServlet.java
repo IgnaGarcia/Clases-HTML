@@ -18,13 +18,15 @@ public class ListProductServlet extends HttpServlet implements Servlet {
 	
 	@Override
 	public void init() throws ServletException {
+		super.init();
 		productoService = new ProductoService();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("products", productoService.list());
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/productos/productos.jsp");
-		dispatcher.forward(req, resp);
+		getServletContext()
+			.getRequestDispatcher("/views/productos/productos.jsp")
+			.forward(req, resp);
 	}
 }

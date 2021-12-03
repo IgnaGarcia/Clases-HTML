@@ -36,7 +36,7 @@
 							<c:when test="${ user.isAdmin() }">
 								<td>
 									<a href="edit.do?id=${ product.getId() }">Editar</a>
-									<a href="delete.do?name=${ product.getName() }">Borrar</a>
+									<a href="delete.do?id=${ product.getId() }">Borrar</a>
 								</td>
 							</c:when>
 							<c:otherwise>

@@ -17,15 +17,14 @@ public class DeleteProductServlet extends HttpServlet implements Servlet {
 	
 	@Override
 	public void init() throws ServletException {
+		super.init();
 		productoService = new ProductoService();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter("name");
-
-		productoService.delete(name);
-
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		productoService.delete(id);
 		resp.sendRedirect("/webapp/producto/list.do");
 	}
 }

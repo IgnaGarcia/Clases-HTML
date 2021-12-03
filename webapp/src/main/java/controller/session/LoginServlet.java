@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet implements Servlet {
 
 	@Override
 	public void init() throws ServletException {
+		super.init();
 		loginService = new LoginService();
 	}
 

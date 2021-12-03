@@ -2,7 +2,6 @@ package controller.productos;
 
 import java.io.IOException;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,13 +18,15 @@ public class CreateProductServlet extends HttpServlet implements Servlet {
 	
 	@Override
 	public void init() throws ServletException {
+		super.init();
 		productoService = new ProductoService();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/productos/create.jsp");
-		dispatcher.forward(req, resp);
+		getServletContext()
+			.getRequestDispatcher("/views/productos/create.jsp")
+			.forward(req, resp);
 	}
 	
 	@Override
@@ -33,20 +34,17 @@ public class CreateProductServlet extends HttpServlet implements Servlet {
 		String name = req.getParameter("name");
 		Double price = Double.parseDouble(req.getParameter("price"));
 		Integer stock = Integer.parseInt(req.getParameter("stock"));
+			
+		Producto prod = productoService.create(name, price, stock);
 		
-		// ahora sin id porque se encarga la DB
-		Producto prod = new Producto(name, price, stock);
-		
-		if(productoService.create(prod) != null) {
-			// succes
+		if(prod.isValid()) {
 			resp.sendRedirect("list.do");
 		} else {
-			// error
 			req.setAttribute("producto", prod);
 
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/productos/create.jsp");
-			dispatcher.forward(req, resp);			
+			getServletContext()
+				.getRequestDispatcher("/views/productos/create.jsp")
+				.forward(req, resp);			
 		}
 	}
 }

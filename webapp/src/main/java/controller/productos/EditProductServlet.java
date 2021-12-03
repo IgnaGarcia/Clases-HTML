@@ -19,6 +19,7 @@ public class EditProductServlet extends HttpServlet implements Servlet {
 	
 	@Override
 	public void init() throws ServletException {
+		super.init();
 		productoService = new ProductoService();
 	}
 	
@@ -39,17 +40,15 @@ public class EditProductServlet extends HttpServlet implements Servlet {
 		Double price = Double.parseDouble(req.getParameter("price"));
 		Integer stock = Integer.parseInt(req.getParameter("stock"));
 		
-		
-		if(productoService.update(id, name, price, stock) != null) {
-			// succes
+		Producto prod = productoService.update(id, name, price, stock);
+		if(prod.isValid()) {
 			resp.sendRedirect("list.do");
 		} else {
-			// error
-			req.setAttribute("producto", new Producto(id, name, price, stock));
+			req.setAttribute("producto", prod);
 
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/productos/edit.jsp");
-			dispatcher.forward(req, resp);			
+			getServletContext()
+					.getRequestDispatcher("/views/productos/edit.jsp")
+					.forward(req, resp);			
 		}
 	}
 }

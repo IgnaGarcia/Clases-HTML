@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashMap;
+
 public class Producto {
 	private Integer id;
 	private String name;
@@ -64,5 +66,19 @@ public class Producto {
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public boolean isValid() {
+		return validate().isEmpty();
+	}
+	
+	public HashMap<String, String> validate(){
+		HashMap<String, String> errors = new HashMap<String, String>();
+		
+		if(name.isBlank()) errors.put("name", "El nombre es requerido");		
+		if(price <= 0) errors.put("price", "El precio debe ser positivo");
+		if(stock <= 0) errors.put("price", "El stock debe ser positivo");
+		
+		return errors;
 	}
 }

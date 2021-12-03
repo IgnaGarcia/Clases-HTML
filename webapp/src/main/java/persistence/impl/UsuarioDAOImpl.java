@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Producto;
 import model.Usuario;
 import persistence.UsuarioDAO;
 import persistence.commons.ConnectionProvider;
@@ -94,13 +93,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	@Override
-	public int delete(Usuario t) {
+	public int delete(Integer id) {
 		try {
 			String sql = "UPDATE usuario SET active = 0 WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, t.getId());
+			statement.setInt(1, id);
 			int rows = statement.executeUpdate();
 
 			return rows;
