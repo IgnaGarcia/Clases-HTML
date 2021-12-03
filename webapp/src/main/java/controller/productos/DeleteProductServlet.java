@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import service.ProductoService;
 
-@WebServlet("/producto/delete.do")
+@WebServlet("/producto/delete.adm")
 public class DeleteProductServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = -5506851070266130036L;
 	ProductoService productoService;

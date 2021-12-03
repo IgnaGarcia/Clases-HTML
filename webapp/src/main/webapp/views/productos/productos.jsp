@@ -13,7 +13,7 @@
 	<h2> Estos son los Productos </h2>
 		
 	<c:if test="${ user.isAdmin() }">
-		<a href="create.do"> Crear nuevo Producto </a>
+		<a href="create.adm"> Crear nuevo Producto </a>
 	</c:if>	
 	
 	<table>
@@ -35,8 +35,8 @@
 						<c:choose>
 							<c:when test="${ user.isAdmin() }">
 								<td>
-									<a href="edit.do?id=${ product.getId() }">Editar</a>
-									<a href="delete.do?id=${ product.getId() }">Borrar</a>
+									<a href="edit.adm?id=${ product.getId() }">Editar</a>
+									<a href="delete.adm?id=${ product.getId() }">Borrar</a>
 								</td>
 							</c:when>
 							<c:otherwise>

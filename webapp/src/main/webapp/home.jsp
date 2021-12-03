@@ -16,6 +16,10 @@
 		</i>
 	</h2>
 	
+	<c:if test="${ flash != null }">
+		<c:out value="${ flash }"></c:out>
+	</c:if>
+	
 	<a href="producto/list.do"> Ver productos </a>
 </body>
 </html>
