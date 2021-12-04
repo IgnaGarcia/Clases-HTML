@@ -57,7 +57,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int insert(Usuario t) {
 		try {
-			String sql = "INSERT INTO usuario (username, password, admin, money) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO usuario (name, password, admin, money) VALUES (?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -135,7 +135,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				res.getString(2),
 				res.getString(3), 
 				res.getInt(4) == 1, 
-				res.getDouble(5));
+				res.getDouble(5),
+				res.getInt(6) == 1);
 	}
 
 }
