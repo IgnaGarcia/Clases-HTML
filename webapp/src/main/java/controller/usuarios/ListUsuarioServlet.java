@@ -12,7 +12,7 @@ import service.UsuarioService;
 
 @WebServlet("/usuario/list.adm")
 public class ListUsuarioServlet extends HttpServlet implements Servlet {
-	private static final long serialVersionUID = -2978092874230647675L;
+	private static final long serialVersionUID = -7384254254803876948L;
 	UsuarioService usuarioService;
 	
 	@Override

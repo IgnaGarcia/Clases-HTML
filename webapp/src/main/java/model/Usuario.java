@@ -10,6 +10,25 @@ public class Usuario {
 	private Double money;
 	private boolean active;
 	
+	public boolean isValid() {
+		return validate().isEmpty();
+	}
+	
+	public HashMap<String, String> validate(){
+		HashMap<String, String> errors = new HashMap<String, String>();
+		
+		if(username.isBlank()) errors.put("name", "El nombre es requerido");	
+		if(password.isBlank()) errors.put("password", "La contraseña es requerida");
+		else if(password.length() < 6) errors.put("password", "La contraseña debe tener al menos 6 caracteres");
+		if(money < 0) errors.put("price", "El dinero debe ser positivo");
+		
+		return errors;
+	}	
+	
+	public boolean puedePagar(Producto prod) {
+		return money >= prod.getPrice();
+	}
+	
 	public Usuario(Integer id, String username, String password, boolean admin, Double money, Boolean active) {
 		this.id = id;
 		this.setUsername(username);
@@ -73,20 +92,5 @@ public class Usuario {
 	
 	public boolean isActive() {
 		return active;
-	}
-	
-	public boolean isValid() {
-		return validate().isEmpty();
-	}
-	
-	public HashMap<String, String> validate(){
-		HashMap<String, String> errors = new HashMap<String, String>();
-		
-		if(username.isBlank()) errors.put("name", "El nombre es requerido");	
-		if(password.isBlank()) errors.put("password", "La contraseña es requerida");
-		else if(password.length() < 6) errors.put("password", "La contraseña debe tener al menos 6 caracteres");
-		if(money < 0) errors.put("price", "El dinero debe ser positivo");
-		
-		return errors;
 	}
 }

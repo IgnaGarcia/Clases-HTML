@@ -16,6 +16,10 @@
 		<a href="create.adm"> Crear nuevo Producto </a>
 	</c:if>	
 	
+	<c:if test="${ flash != null }">
+		<c:out value="${ flash }"></c:out>
+	</c:if>	
+	
 	<table>
 		<thead>
 			<tr>
@@ -32,19 +36,20 @@
 						<td> <c:out value="${ product.getName() }"></c:out> </td>
 						<td> <c:out value="${ product.getPrice() }"></c:out> </td>
 						<td> <c:out value="${ product.getStock() }"></c:out> </td>
+						<td>
 						<c:choose>
 							<c:when test="${ user.isAdmin() }">
-								<td>
-									<a href="edit.adm?id=${ product.getId() }">Editar</a>
-									<a href="delete.adm?id=${ product.getId() }">Borrar</a>
-								</td>
+								<a href="edit.adm?id=${ product.getId() }">Editar</a>
+								<a href="delete.adm?id=${ product.getId() }">Borrar</a>
+							</c:when>
+							<c:when test="${ user.puedePagar(product) && product.puedeOfertarse() }">
+								<a href="buy.do?id=${ product.getId() }">Comprar</a>							
 							</c:when>
 							<c:otherwise>
-								<td>
-									<a href="#">Comprar</a>
-								</td>
+								<span>No disponible</span>
 							</c:otherwise>
 						</c:choose>
+						</td>
 					</tr>
 				</c:if>
 			</c:forEach>

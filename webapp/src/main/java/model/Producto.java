@@ -9,6 +9,25 @@ public class Producto {
 	private Integer stock;
 	private boolean active;
 	
+
+	public boolean isValid() {
+		return validate().isEmpty();
+	}
+	
+	public HashMap<String, String> validate(){
+		HashMap<String, String> errors = new HashMap<String, String>();
+		
+		if(name.isBlank()) errors.put("name", "El nombre es requerido");		
+		if(price <= 0) errors.put("price", "El precio debe ser positivo");
+		if(stock <= 0) errors.put("stock", "El stock debe ser positivo");
+		
+		return errors;
+	}
+	
+	public boolean puedeOfertarse() {
+		return stock > 0;
+	}
+	
 	public Producto(Integer id, String name, Double price, Integer stock, boolean active) {
 		this.id = id;
 		this.name = name;
@@ -66,19 +85,5 @@ public class Producto {
 	
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public boolean isValid() {
-		return validate().isEmpty();
-	}
-	
-	public HashMap<String, String> validate(){
-		HashMap<String, String> errors = new HashMap<String, String>();
-		
-		if(name.isBlank()) errors.put("name", "El nombre es requerido");		
-		if(price <= 0) errors.put("price", "El precio debe ser positivo");
-		if(stock <= 0) errors.put("stock", "El stock debe ser positivo");
-		
-		return errors;
 	}
 }
