@@ -23,6 +23,13 @@ public class ProductoService {
 		return prod;
 	}
 	
+	public Producto update(Producto prod) {
+		if(prod.isValid()) {
+			DAOFactory.getProductoDAO().update(prod);
+		}
+		return prod;
+	}
+	
 	public Producto find(Integer id) {
 		return DAOFactory.getProductoDAO().find(id);
 	}

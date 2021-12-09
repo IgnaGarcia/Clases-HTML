@@ -28,6 +28,10 @@ public class Producto {
 		return stock > 0;
 	}
 	
+	public void venderse() {
+		stock -= 1;
+	}
+	
 	public Producto(Integer id, String name, Double price, Integer stock, boolean active) {
 		this.id = id;
 		this.name = name;

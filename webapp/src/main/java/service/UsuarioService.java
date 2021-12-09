@@ -22,6 +22,13 @@ public class UsuarioService {
 		return user;
 	}
 	
+	public Usuario update(Usuario user) {
+		if(user.isValid()) {
+			DAOFactory.getUsuarioDAO().update(user);
+		}
+		return user;
+	}
+	
 	public Usuario find(Integer id) {
 		return DAOFactory.getUsuarioDAO().find(id);
 	}

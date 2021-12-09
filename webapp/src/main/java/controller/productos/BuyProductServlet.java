@@ -29,17 +29,19 @@ public class BuyProductServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Usuario user = (Usuario) req.getSession().getAttribute("user");
-		Producto prod = productService.find(Integer.parseInt(req.getParameter("id")));
+		Integer productId = Integer.parseInt(req.getParameter("id"));
+		Producto prod = productService.find(productId);
 		
 		if(buyService.buy(user, prod)) {
 			// la compra se realizo
+			req.setAttribute("flash", "Comprado Exitosamente");
 		} else {
 			//la compra no se realizo
 			req.setAttribute("flash", "No se pudo realizar");
-
-			getServletContext()
-					.getRequestDispatcher("/views/productos/productos.jsp")
-					.forward(req, resp);
 		}
+		
+		getServletContext()
+			.getRequestDispatcher("/producto/list.do")
+			.forward(req, resp);
 	}
 }

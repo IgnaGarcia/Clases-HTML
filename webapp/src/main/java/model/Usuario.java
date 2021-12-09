@@ -29,6 +29,10 @@ public class Usuario {
 		return money >= prod.getPrice();
 	}
 	
+	public void comprar(Producto prod) {
+		money -= prod.getPrice();
+	}
+	
 	public Usuario(Integer id, String username, String password, boolean admin, Double money, Boolean active) {
 		this.id = id;
 		this.setUsername(username);
